@@ -290,12 +290,6 @@ public postfix func ~ (value: CGFloat) -> CGFloat {
 public postfix func ~ (font: UIFont) -> UIFont {
     return font.sf(.flexibleWidth)
 }
-public postfix func ~ (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.flexibleWidth)
-}
-public postfix func ~ (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.flexibleWidth)
-}
 public postfix func ~ (value: CGPoint) -> CGPoint {
     return value.sf(.flexibleWidth)
 }
@@ -316,12 +310,6 @@ public postfix func ≈ (value: CGFloat) -> CGFloat {
 }
 public postfix func ≈ (font: UIFont) -> UIFont {
     return font.sf(.forceWidth)
-}
-public postfix func ≈ (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.forceWidth)
-}
-public postfix func ≈ (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.forceWidth)
 }
 public postfix func ≈ (value: CGPoint) -> CGPoint {
     return value.sf(.forceWidth)
@@ -344,12 +332,6 @@ public postfix func ∣ (value: CGFloat) -> CGFloat {
 public postfix func ∣ (font: UIFont) -> UIFont {
     return font.sf(.flexibleHeight)
 }
-public postfix func ∣ (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.flexibleHeight)
-}
-public postfix func ∣ (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.flexibleHeight)
-}
 public postfix func ∣ (value: CGPoint) -> CGPoint {
     return value.sf(.flexibleHeight)
 }
@@ -370,12 +352,6 @@ public postfix func ∥ (value: CGFloat) -> CGFloat {
 }
 public postfix func ∥ (font: UIFont) -> UIFont {
     return font.sf(.forceHeight)
-}
-public postfix func ∥ (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.forceHeight)
-}
-public postfix func ∥ (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.forceHeight)
 }
 public postfix func ∥ (value: CGPoint) -> CGPoint {
     return value.sf(.forceHeight)
@@ -398,12 +374,6 @@ public postfix func ∣= (value: CGFloat) -> CGFloat {
 public postfix func ∣= (font: UIFont) -> UIFont {
     return font.sf(.flexibleSafeAreaCenterHeight)
 }
-public postfix func ∣= (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.flexibleSafeAreaCenterHeight)
-}
-public postfix func ∣= (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.flexibleSafeAreaCenterHeight)
-}
 public postfix func ∣= (value: CGPoint) -> CGPoint {
     return value.sf(.flexibleSafeAreaCenterHeight)
 }
@@ -424,12 +394,6 @@ public postfix func ∥= (value: CGFloat) -> CGFloat {
 }
 public postfix func ∥= (font: UIFont) -> UIFont {
     return font.sf(.forceSafeAreaCenterHeight)
-}
-public postfix func ∥= (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.forceSafeAreaCenterHeight)
-}
-public postfix func ∥= (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.forceSafeAreaCenterHeight)
 }
 public postfix func ∥= (value: CGPoint) -> CGPoint {
     return value.sf(.forceSafeAreaCenterHeight)
@@ -452,12 +416,6 @@ public postfix func ∣- (value: CGFloat) -> CGFloat {
 public postfix func ∣- (font: UIFont) -> UIFont {
     return font.sf(.flexibleSafeAreaWithoutTopHeight)
 }
-public postfix func ∣- (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.flexibleSafeAreaWithoutTopHeight)
-}
-public postfix func ∣- (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.flexibleSafeAreaWithoutTopHeight)
-}
 public postfix func ∣- (value: CGPoint) -> CGPoint {
     return value.sf(.flexibleSafeAreaWithoutTopHeight)
 }
@@ -478,12 +436,6 @@ public postfix func ∥- (value: CGFloat) -> CGFloat {
 }
 public postfix func ∥- (font: UIFont) -> UIFont {
     return font.sf(.forceSafeAreaWithoutTopHeight)
-}
-public postfix func ∥- (value: Int) -> CGFloat {
-    return CGFloat(value).sf(.forceSafeAreaWithoutTopHeight)
-}
-public postfix func ∥- (value: Float) -> CGFloat {
-    return CGFloat(value).sf(.forceSafeAreaWithoutTopHeight)
 }
 public postfix func ∥- (value: CGPoint) -> CGPoint {
     return value.sf(.forceSafeAreaWithoutTopHeight)
@@ -605,7 +557,7 @@ public extension UIFont {
 }
 public extension SwiftyFitsize {
     @objc func sf_int(_ value: Int) -> CGFloat {
-        return value~
+        return CGFloat(value)~
     }
     @objc func sf_float(_ value: CGFloat) -> CGFloat {
         return value~
@@ -622,9 +574,9 @@ public extension SwiftyFitsize {
     @objc func sf_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value~
     }
-    
+
     @objc func sfz_int(_ value: Int) -> CGFloat {
-        return value≈
+        return CGFloat(value)≈
     }
     @objc func sfz_float(_ value: CGFloat) -> CGFloat {
         return value≈
@@ -641,10 +593,10 @@ public extension SwiftyFitsize {
     @objc func sfz_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value≈
     }
-    
+
     // fh: full height
     @objc func sf_fh_int(_ value: Int) -> CGFloat {
-        return value∣
+        return CGFloat(value)∣
     }
     @objc func sf_fh_float(_ value: CGFloat) -> CGFloat {
         return value∣
@@ -661,9 +613,9 @@ public extension SwiftyFitsize {
     @objc func sf_fh_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value∣
     }
-    
+
     @objc func sfz_fh_int(_ value: Int) -> CGFloat {
-        return value∥
+        return CGFloat(value)∥
     }
     @objc func sfz_fh_float(_ value: CGFloat) -> CGFloat {
         return value∥
@@ -680,10 +632,10 @@ public extension SwiftyFitsize {
     @objc func sfz_fh_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value∥
     }
-    
+
     // sch: safeArea center height
     @objc func sf_sch_int(_ value: Int) -> CGFloat {
-        return value∣=
+        return CGFloat(value)∣=
     }
     @objc func sf_sch_float(_ value: CGFloat) -> CGFloat {
         return value∣=
@@ -700,9 +652,9 @@ public extension SwiftyFitsize {
     @objc func sf_sch_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value∣=
     }
-    
+
     @objc func sfz_sch_int(_ value: Int) -> CGFloat {
-        return value∥=
+        return CGFloat(value)∥=
     }
     @objc func sfz_sch_float(_ value: CGFloat) -> CGFloat {
         return value∥=
@@ -719,10 +671,10 @@ public extension SwiftyFitsize {
     @objc func sfz_sch_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value∥=
     }
-    
+
     // sbh: safeArea bottom height
     @objc func sf_sbh_int(_ value: Int) -> CGFloat {
-        return value∣-
+        return CGFloat(value)∣-
     }
     @objc func sf_sbh_float(_ value: CGFloat) -> CGFloat {
         return value∣-
@@ -739,9 +691,9 @@ public extension SwiftyFitsize {
     @objc func sf_sbh_EdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets {
         return value∣-
     }
-    
+
     @objc func sfz_sbh_int(_ value: Int) -> CGFloat {
-        return value∥-
+        return CGFloat(value)∥-
     }
     @objc func sfz_sbh_float(_ value: CGFloat) -> CGFloat {
         return value∥-
